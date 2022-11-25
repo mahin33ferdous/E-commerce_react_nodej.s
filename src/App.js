@@ -1,4 +1,5 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { productsAndcartLoader } from './Api/productsAndcartLoader';
 import './App.css';
 import About from './components/About/About';
 import Inventory from './components/Orders/Inventory/Inventory';
@@ -16,11 +17,12 @@ function App() {
       children:[
         {
           path:'/',
+          loader:()=>fetch('products.json'),
           element: <Shop></Shop>
         },
         {
           path:'/orders',
-          loader:()=>fetch('products.json'),
+          loader:productsAndcartLoader,
           element:<Orders></Orders>
         },
         {
