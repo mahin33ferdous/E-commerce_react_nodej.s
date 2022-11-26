@@ -18,5 +18,5 @@ export const productsAndcartLoader=async()=>{
         }
     }
 
-    return {products,previousCart};
+    return {products:products,initialCart:previousCart};
 }
